@@ -1,0 +1,7 @@
+{
+  "name": "jarvisTask",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

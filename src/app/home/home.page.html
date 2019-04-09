@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>
+      JarvisTask
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <h3>Olá mestre Marcos!</h3> 
+    <ion-list no-lines>
+      
+      <ion-item *ngIf="tasks.length < 1">
+        <ion-label text-center>Não há tarefas.</ion-label>
+      </ion-item>
+
+      <ion-item-sliding *ngFor="let task of tasks">
+        <ion-item (click)="openActions(task)">
+          <ion-label text-uppercase>
+            {{task.name}}
+          </ion-label>
+          <ion-icon *ngIf="!task.done" slot="start" name="radio-button-off" color="danger"></ion-icon>
+          <ion-icon *ngIf="task.done" slot="start" name="checkmark-circle" color="danger"></ion-icon>
+        </ion-item>
+
+        <ion-item-options side="end">
+          <ion-item-option (click)="delete(task)" color="danger"> Excluir </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+    
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="showAdd()">
+      <ion-fab-button color="danger">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</ion-content>
